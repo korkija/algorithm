@@ -79,21 +79,21 @@ const inputs = [
 
 attempt = (available, allowed, preferred) => {
     const allowedSet = new Set(allowed);
-    const availAllow =
+    const availableAllowed =
         allowed.includes('any')
             ?
             available :
             available.filter((item) => allowedSet.has(item));
 
-    if (!!availAllow.length) {
+    if (!!availableAllowed.length) {
         if (preferred.includes('any')) {
-            return availAllow;
+            return availableAllowed;
         }
 
         const availAllowReverse = [...availAllow].reverse();
 
         const result = preferred.reduce((accum, itemP) => {
-            const max = availAllow.find(itemAA => itemAA >= itemP);
+            const max = availableAllowed.find(itemAA => itemAA >= itemP);
 
             if (max) {
                 return accum.add(max);
