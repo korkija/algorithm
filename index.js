@@ -90,7 +90,7 @@ attempt = (available, allowed, preferred) => {
             return availableAllowed;
         }
 
-        const availAllowReverse = [...availableAllowed].reverse();
+        const availableAllowedReverse = [...availableAllowed].reverse();
 
         const result = preferred.reduce((accum, itemP) => {
             const max = availableAllowed.find(itemAA => itemAA >= itemP);
@@ -99,7 +99,7 @@ attempt = (available, allowed, preferred) => {
                 return accum.add(max);
             }
 
-            const min = availAllowReverse.find(itemAA => itemAA < itemP);
+            const min = availableAllowedReverse.find(itemAA => itemAA < itemP);
 
             return accum.add(min);
         }, new Set([]));
