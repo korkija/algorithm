@@ -90,7 +90,7 @@ attempt = (available, allowed, preferred) => {
             return availableAllowed;
         }
 
-        const availAllowReverse = [...availAllow].reverse();
+        const availAllowReverse = [...availableAllowed].reverse();
 
         const result = preferred.reduce((accum, itemP) => {
             const max = availableAllowed.find(itemAA => itemAA >= itemP);
